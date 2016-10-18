@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4 center-block btn-row">
+        <form class="btn-inline" action="/setup">
+            <input type="submit" value="← Change Settings">
+        </form>
+        <form class="btn-inline" action="/exit">            
+            <input type="submit" value="Finish Test" name="exit">
+        </form>
+        <form class="btn-inline">            
+            <input type="submit" value="Next Interval →" name="next">
+        </form>
+    </div>
+</div>
+<br />
+<div class="row"> 
+    {% block music_test %}
+    {% endblock %}
+</div>
+</br>
+    <div class="message_box">
+        <p id="messages">
+            {{ msg }}
+        </p>    
+    </div>
+<br />
+<div class="row" style="display:none">
+    <div class="col-md-4 center-block btn-row">
+        <form class="btn-inline" action="">
+            <input type="submit" value="Show/Hide Notation" name="notation">
+        </form>
+
+    </div>
+</div>
+
+
+{% endblock %}
