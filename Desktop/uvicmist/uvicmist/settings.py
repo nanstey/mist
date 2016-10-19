@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'uvicmist.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 ## HEROKU DEPLOYMENT ##
-DATABASES['default'] =  dj_database_url.config()
+DATABASES = {'default':  dj_database_url.config()}
 
 ## LOCAL DEPLOYMENT ##
 # DATABASES = {
