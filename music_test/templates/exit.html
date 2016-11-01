@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 center-block btn-row large-text">
+        
+        <p>
+            You scored <b>{{ score }}</b> correct
+        </p>
+        
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Question #</th>
+                    <th>Interval</th>
+                    <th>Direction</th>
+                    <th>Correct</th>
+                </th>
+            </thead>
+            {% for interval in tested_intervals %}
+                <tr>
+                    <td> {{ forloop.counter }}. </td>
+                    <td> {{ interval.0 }} </td>
+                    <td>
+                        {% if interval.1 == 1 %}
+                            ↑
+                        {% else %}
+                            ↓
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if interval.2 == 1 %}
+                            <img class="icon" src="/static/images/checkmark.png"></img>
+                        {% else %}
+                            <img class="icon" src="/static/images/markx.png"></img>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="col-md-4 center-block btn-row" style="border:none">      
+        <form class="btn-inline" action="/">            
+            <input type="submit" value="← Back Home" name="Home">
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock %}

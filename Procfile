@@ -1,0 +1,1 @@
+web: gunicorn uvicmist.wsgi
