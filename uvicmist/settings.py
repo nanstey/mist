@@ -24,7 +24,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = '^ds#)!pat0itab2zmd#1t@1xi03)-dv%&dxyna$rol(4xnkl%u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -145,5 +145,7 @@ STATICFILES_FINDERS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+WHITENOISE_MAX_AGE = 3600
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
