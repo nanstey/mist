@@ -1,0 +1,43 @@
+{% extends "test.html" %}
+{% load bootstrap3 %}
+{% load staticfiles %}
+
+{% block music_test %}
+<div class="row">
+    <div class="col-md-4 center-block btn-row" style="border:none">
+        <h3> {{ interval_name }}
+        {% if direction == 1 %}
+            ↑
+        {% else %}
+            ↓
+        {% endif %}
+        </h3>
+        
+        <div class="notation_canvas">
+        </div>
+        
+        <audio id="first_note">
+			<source src="{% static "" %}audio/{{ first_note }}.ogg" type="audio/ogg">
+			<source src="{% static "" %}audio/{{ first_note }}.mp3" type="audio/mpeg">
+		</audio>
+        <audio id="second_note">
+			<source src="{% static "" %}audio/{{ second_note }}.ogg" type="audio/ogg">
+			<source src="{% static "" %}audio/{{ second_note }}.mp3" type="audio/mpeg">
+		</audio>
+
+        <button id="first_button" onclick='document.getElementById("first_note").play();'>Play 1st Note</button>
+        <button id="second_button" onclick='document.getElementById("second_note").play();' disabled>Play 2nd Note</button>
+        
+        <br>
+        <br>
+     </div>
+    <div class="col-md-4 center-block btn-row" style="border:none">      
+        <button id="record" class="big_button" style="background-color:black">Record</button>     
+        <button id="submit" class="big_button" style="background-color:green" disabled>Submit</button>
+    </div>
+    </br>
+    <div class="score_box">
+        <p> {{ score }} </p>
+    </div>    
+</div>    
+{% endblock %}

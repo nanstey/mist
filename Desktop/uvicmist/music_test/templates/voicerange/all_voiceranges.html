@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+{% for voicerange in voiceranges %}
+    {{voicerange.pk}}
+    {{voicerange.vr_name}}
+    {{voicerange.vr_bot}}
+    {{voicerange.vr_top}}
+{% endfor %}
+{% endblock%}

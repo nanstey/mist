@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+<p>Select your voice range:</p>
+<div class='row'>
+    <div class='col-md-3 col-md-offset-1'>
+        <form action="/voicerange/" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% for VoiceRange in VoiceRanges %}
+                <div class="radio">
+                    {{ VoiceRange }}
+                </div>
+             {% endfor %}
+             <input type="submit" value="OK">
+        </form>
+    </div>
+</div>
+{% endblock%}
