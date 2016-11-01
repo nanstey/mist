@@ -26,6 +26,8 @@ SECRET_KEY = '^ds#)!pat0itab2zmd#1t@1xi03)-dv%&dxyna$rol(4xnkl%u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+SECURE_SSL_REDIRECT = True
+
 ALLOWED_HOSTS = ['localhost','uvicmist.herokuapp.com']
 
 # Application definition
@@ -139,7 +141,6 @@ STATICFILES_FINDERS = [
         # 'npm.finders.NpmFinder',
         'django.contrib.staticfiles.finders.FileSystemFinder',
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-        
 ]
 
 # Simplified static file serving.
