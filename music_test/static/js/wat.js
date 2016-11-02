@@ -48,7 +48,7 @@ $(document).ready(function () {
 			audioContext = new window.AudioContext();
 		}
 		else {
-			reportError('AudioContext is not supported in this browser');
+			reportError('<span style="color:red">AudioContext is not supported in this browser.<br>Please use Chrome or Firefox</span>');
 		}
 	};
 
@@ -283,8 +283,7 @@ $(document).ready(function () {
                 $("#messages").fadeOut();
 			}
 			else {
-				reportError('It looks like this browser does not support getUserMedia. ' +
-				'Check <a href="http://caniuse.com/#feat=stream">http://caniuse.com/#feat=stream</a> for more info.');
+				reportError('<span style="color:red">It looks like this browser does not support getUserMedia.<br>Please use Chrome or Firefox</span>');
 			}
 		}
 		else {
