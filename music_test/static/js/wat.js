@@ -42,13 +42,14 @@ $(document).ready(function () {
 		$.getJSON('/static/json/notes.json', function (data) {
             //console.log(data);
 			freqTable = data;
+            notesArray = freqTable.notes;
 		});
 
 		if (isAudioContextSupported()) {
-			audioContext = new window.AudioContext();
+			audioContext = (window.AudioContext || window.webkitAudioContext);
 		}
 		else {
-			reportError('<span style="color:red">AudioContext is not supported in this browser.<br>Please use Chrome or Firefox</span>');
+			reportError('<span style="color:red">AudioContext is not supported in this browser.<br>Please use updated version of Chrome or Firefox</span>');
 		}
 	};
 
@@ -260,14 +261,9 @@ $(document).ready(function () {
 	};
 
 	var toggleMicrophone = function () {
-		//if (isRefSoundPlaying) {
-		//	turnOffReferenceSound();
-		//}
 
 		if (!isMicrophoneInUse) {
 			if (isGetUserMediaSupported()) {
-				notesArray = freqTable.notes;
-                //console.log("notesarray:\n" + notesArray); 
 
 				var getUserMedia = navigator.mediaDevices && navigator.mediaDevices.getUserMedia ?
 					navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices) :
@@ -283,7 +279,7 @@ $(document).ready(function () {
                 $("#messages").fadeOut();
 			}
 			else {
-				reportError('<span style="color:red">It looks like this browser does not support getUserMedia.<br>Please use Chrome or Firefox</span>');
+				reportError('<span style="color:red">It looks like this browser does not support getUserMedia.<br>Please use updated version of Chrome or Firefox</span>');
 			}
 		}
 		else {
