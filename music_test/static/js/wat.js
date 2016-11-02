@@ -46,7 +46,7 @@ $(document).ready(function () {
 		});
 
 		if (isAudioContextSupported()) {
-			audioContext = new (window.AudioContext || window.webkitAudioContext)();
+			audioContext = new window.AudioContext();
 		}
 		else {
 			reportError('<span style="color:red">AudioContext is not supported in this browser.<br>Please use updated version of Chrome or Firefox</span>');
