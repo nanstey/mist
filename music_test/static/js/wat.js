@@ -34,7 +34,8 @@ $(document).ready(function () {
 	};
 
 	var reportError = function (message) {
-		$('#errorMessage').html(message).show();
+		$('p#messages').fadeIn();
+        $('p#messages').html(message);
 	};
 
 	var init = function () {
@@ -56,7 +57,6 @@ $(document).ready(function () {
 		if ((navigator.mediaDevices && navigator.mediaDevices.getUserMedia) || navigator.getUserMedia) {
 			return true;
 		}
-
 		return false;
 	};
 
