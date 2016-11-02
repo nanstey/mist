@@ -63,7 +63,7 @@ def test(request):
         context2['interval_name'] = next_interval[1][2]
         context2['direction'] = next_interval[2]
         context2['score'] = score
-        return render(request, 'interface.html', context2)
+        return render(request, 'test_interval.html', context2)
         # except UnboundLocalError:
         #     print("There was a problem...")
     else:    
@@ -80,9 +80,9 @@ def test(request):
         context['list'] = Manager.list()
         context['intervals'] = Manager.intervals()
         context['direction'] = Manager.direction()
-        context['msg'] = "Press 'Next Interval' to begin"
+        context['msg'] = "<span class='large-text'>Ready?</span><br>Press 'Next Interval' to begin"
         # Render template
-        return render(request, 'test.html', context)
+        return render(request, 'test_frame.html', context)
     
 def submit(request):
     notes = json.loads(request.body)
