@@ -42,7 +42,6 @@ $(document).ready(function () {
 		$.getJSON('/static/json/notes.json', function (data) {
             //console.log(data);
 			freqTable = data;
-            notesArray = freqTable.notes;
 		});
 
 		if (isAudioContextSupported()) {
@@ -264,7 +263,7 @@ $(document).ready(function () {
 
 		if (!isMicrophoneInUse) {
 			if (isGetUserMediaSupported()) {
-
+                notesArray = freqTable.notes;
 				var getUserMedia = navigator.mediaDevices && navigator.mediaDevices.getUserMedia ?
 					navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices) :
 					function (constraints) {
