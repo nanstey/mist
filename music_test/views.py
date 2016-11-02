@@ -80,7 +80,7 @@ def test(request):
         context['list'] = Manager.list()
         context['intervals'] = Manager.intervals()
         context['direction'] = Manager.direction()
-        context['msg'] = "<span class='large-text'>Ready?</span><br>Press 'Next Interval' to begin"
+        context['msg'] = "Ready? Press 'Next Interval' to begin"
         # Render template
         return render(request, 'test_frame.html', context)
     
